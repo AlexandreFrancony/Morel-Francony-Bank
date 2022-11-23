@@ -21,13 +21,13 @@
                     case 1:
                     break;
 
-                    case 2://Création
+                    case 2:
                     break;
 
-                    case 3://Infos
+                    case 3:
                     break;
 
-                    case 4://Read Data
+                    case 4:
                     break;
 
                     case 9://Quitter

@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Francony_Morel
 {
-    internal class Compte
+    internal class Epargne : Account
     {
+    
+        public Epargne(Owner owner, double sold) : base(owner, sold)
+        {
+            
+        }
     }
 }
