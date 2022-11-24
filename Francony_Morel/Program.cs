@@ -19,6 +19,8 @@
                 switch (choix) 
                 {//Le choix 0 doit Rester vide pour le cas où l'utilisateur ne rentre rien
                     case 1:
+
+                    Utils.Wait();
                     break;
 
                     case 2:
