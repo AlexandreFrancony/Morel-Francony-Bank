@@ -20,7 +20,7 @@
                 {//Le choix 0 doit Rester vide pour le cas où l'utilisateur ne rentre rien
                     case 1:
 
-                    Utils.Wait();
+                    Utils.Wait();// git test to AF
                     break;
 
                     case 2:
