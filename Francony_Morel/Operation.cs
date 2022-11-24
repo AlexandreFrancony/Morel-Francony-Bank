@@ -20,8 +20,9 @@
         public DateTime Date { get => date; set => date = value; }
         public string Libellé { get => libellé; set => libellé = value; }
 
-        //TODO: méthode retrait
+        //TODO: méthode retrait qui vérifie que le solde du compte this.sold est suffisant
         //TODO: méthode versement
         //TODO: méthode virement
+        //TODO: méthode qui vérifie que l'opération est possible selon le type de compte et son solde
     }
 }

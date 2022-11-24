@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Francony_Morel
+﻿namespace Francony_Morel
 {
-    internal class Epargne : Account
+    class Epargne : Account
     {
     
-        public Epargne(Owner owner, double sold) : base(owner, sold)
+        int taux;
+        public Epargne(Owner owner, double sold, int id, int taux) : base(owner, sold, id)
         {
-            
+            this.taux = taux;
         }
+
+
     }
 }
