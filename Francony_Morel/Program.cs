@@ -15,7 +15,7 @@
                 Console.WriteLine("4. ");
                 Console.WriteLine("9. Quitter");
                 Console.Write("Votre choix : ");
-                choix = Utils.saisieNombre();
+                choix = Utils.saisieInt();
                 switch (choix) 
                 {//Le choix 0 doit Rester vide pour le cas où l'utilisateur ne rentre rien
                     case 1:
