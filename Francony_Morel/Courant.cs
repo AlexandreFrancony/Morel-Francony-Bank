@@ -15,5 +15,27 @@
         {
             this.decouvert = 0;
         }
+
+        public Courant(double decouvert) : base()
+        {
+            this.decouvert = decouvert;
+        }
+
+        public Courant(double sold, double decouvert) : base()
+        {
+            this.sold = sold;
+            this.decouvert = decouvert;
+        }
+
+        //getter et setter
+        public double GetDecouvert()
+        {
+            return decouvert;
+        }
+
+        public void SetDecouvert(double decouvert)
+        {
+            this.decouvert = decouvert;
+        }
     }
 }

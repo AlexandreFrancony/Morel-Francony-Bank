@@ -21,7 +21,51 @@
         public string Libellé { get => libellé; set => libellé = value; }
 
         //TODO: méthode retrait qui vérifie que le solde du compte this.sold est suffisant
+
+        private void Retrait(Account account, int amount)
+        {
+            if (account.Sold >= amount)
+            {
+                account.Sold -= amount;
+            }
+            else
+            {
+                Console.WriteLine("Solde insuffisant");
+            }
+        }
+
         //TODO: méthode versement
+
+        private void Versement(Account account1, Account account2, int amount)
+        {
+            if(account1 is Courant)
+            {
+                account1 = (Courant)account1;
+                if ((account1.Sold - account1.decouvert)>= amount)
+                {
+                    account1.Sold -= amount;
+                    account2.Sold += amount;
+                }
+                else
+                {
+                    Console.WriteLine("Solde insuffisant");
+                }
+            }
+            else
+            {
+                account1.Sold -= amount;
+                account2.Sold += amount;
+            }
+            if (account1.Sold >= amount)
+            {
+                account1.Sold -= amount;
+                account2.Sold += amount;
+            }
+            else
+            {
+                Console.WriteLine("Solde insuffisant");
+            }
+        }
         //TODO: méthode virement
         //TODO: méthode qui vérifie que l'opération est possible selon le type de compte et son solde
     }
