@@ -35,7 +35,5 @@
         {
             return "Owner [name=" + name + ", card_id=" + card_id + ", address=" + address + "]";
         }
-
-
     }
 }

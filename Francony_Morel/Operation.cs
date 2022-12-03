@@ -25,30 +25,30 @@
         {
             if (amount > 0)
             {
-                account.SoldAccount += amount;
-                account.Operations.Add(new Operation(amount, "Crédit"));
+                account.Sold += amount;
+                //account.Operations.Add(new Operation(amount, "Crédit"));
             }
         }
 
         //méthode Retrait
         public void Retrait(Account account, double amount)
         {
-            if(amount > 0)
+            if (amount > 0)
             {
                 if (account is Courant)
                 {
-                    if (account.SoldAccount - amount >= ((Courant)account).Decouvert)
+                    if (account.Sold - amount >= ((Courant)account).Decouvert)
                     {
-                        account.SoldAccount -= amount;
-                        account.Operations.Add(new Operation(-amount, "Retrait"));
+                        account.Sold -= amount;
+                        //account.Operations.Add(new Operation(-amount, "Retrait"));
                     }
                 }
                 else if (account is Epargne)
                 {
-                    if (account.SoldAccount - amount > 0)
+                    if (account.Sold - amount > 0)
                     {
-                        account.SoldAccount -= amount;
-                        account.Operations.Add(new Operation(-amount, "Retrait"));
+                        account.Sold -= amount;
+                        //account.Operations.Add(new Operation(-amount, "Retrait"));
                     }
                 }
             }
@@ -57,11 +57,11 @@
         //méthode Virement
         public void Virement(Account account1, Account account2, double amount)
         {
-            if (account1.Banque == account2.Banque)
-            {
-                Retrait(account1, amount);
-                Créditer(account2, amount);
-            }
+            //if (account1.Banque == account2.Banque)
+            //{
+            Retrait(account1, amount);
+            Créditer(account2, amount);
+            //}
         }
     }
 }
