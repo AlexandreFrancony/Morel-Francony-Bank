@@ -1,8 +1,8 @@
 ﻿namespace Francony_Morel
 {
-    internal class Utils
+    class Utils
     {
-        public static int saisieNombre()
+        public static int saisieInt()
         {
             //Saisie d'un nombre entier non null et retourne le nombre
             int? nombre = null;
@@ -18,6 +18,24 @@
                 }
             }
             return (int)nombre;
+        }
+
+        public static double saisieDouble()
+        {
+            //Saisie d'un nombre entier non null et retourne le nombre
+            double? nombre = null;
+            while (nombre == null)
+            {
+                try
+                {
+                    nombre = Convert.ToDouble(Console.ReadLine());
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Le nombre ne peut pas être vide, Veuillez recommencer.");
+                }
+            }
+            return (double)nombre;
         }
 
         public static string saisieString()

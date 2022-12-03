@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Etudes\\ESILV\\BIN A3\\C#\\Doss\\Francony_Morel\\Francony_Morel\\Francony_Morel.csproj",
+      "projectUniqueName": "C:\\Users\\Alex\\Downloads\\morelb\\Morel-Francony-Bank\\Francony_Morel\\Francony_Morel.csproj",
       "projectName": "Francony_Morel",
-      "projectPath": "F:\\Etudes\\ESILV\\BIN A3\\C#\\Doss\\Francony_Morel\\Francony_Morel\\Francony_Morel.csproj",
+      "projectPath": "C:\\Users\\Alex\\Downloads\\morelb\\Morel-Francony-Bank\\Francony_Morel\\Francony_Morel.csproj",
       "packagesPath": "C:\\Users\\Alex\\.nuget\\packages\\",
-      "outputPath": "F:\\Etudes\\ESILV\\BIN A3\\C#\\Doss\\Francony_Morel\\Francony_Morel\\obj\\",
+      "outputPath": "C:\\Users\\Alex\\Downloads\\morelb\\Morel-Francony-Bank\\Francony_Morel\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

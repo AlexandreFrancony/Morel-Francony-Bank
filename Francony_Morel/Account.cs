@@ -1,21 +1,30 @@
 ﻿namespace Francony_Morel
 {
-    internal abstract class Account
+    abstract class Account
     {
-        private static int id = 1; //!Verifier si l'incrémentation fonctionne malgré le static
-        private Owner owner;
-
-        private double sold;
-        
-        public Account(Owner owner, double sold)
+        protected int id; //!Verifier si l'incrémentation fonctionne malgré le static
+        protected double sold;
+        protected double debitMax;
+        public Account(Owner owner, double sold, int id, double debitMax)
         {
-            this.owner = owner;
+            this.id = id;
             this.sold = sold;
-            id++;
+            this.debitMax = debitMax;
         }
 
-        public static int Id { get => id; set => id = value; }
-        public Owner Owner { get => owner; set => owner = value; }
+        //constructeur par défaut
+        public Account()
+        {
+            this.sold = 0;
+            id++;
+            this.debitMax = 0;
+        }
+
+        public int Id { get => id; set => id = value; }
         public double Sold { get => sold; set => sold = value; }
+        public double DebitMax { get => debitMax; set => debitMax = value; }
+
+        // methode pour créer un compte courant / epargne
+        
     }
 }
