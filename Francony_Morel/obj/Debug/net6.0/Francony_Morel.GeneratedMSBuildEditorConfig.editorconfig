@@ -7,4 +7,8 @@ build_property.InvariantGlobalization =
 build_property.PlatformNeutralAssembly = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Francony_Morel
+<<<<<<< HEAD
 build_property.ProjectDir = C:\Users\alexm\OneDrive - De Vinci\Travaux A3\C#\projet\Morel-Francony-Bank\Francony_Morel\
+=======
+build_property.ProjectDir = c:\Users\Alex\Downloads\morela\Morel-Francony-Bank\Francony_Morel\
+>>>>>>> 7281e0aa26f44f9d10df8539913c209460199184
