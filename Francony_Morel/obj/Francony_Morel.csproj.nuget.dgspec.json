@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\alexa\\Downloads\\morelfrancony\\Morel-Francony-Bank\\Francony_Morel\\Francony_Morel.csproj": {}
+    "C:\\Users\\Alex\\Downloads\\morelb\\Morel-Francony-Bank\\Francony_Morel\\Francony_Morel.csproj": {}
   },
   "projects": {
-    "C:\\Users\\alexa\\Downloads\\morelfrancony\\Morel-Francony-Bank\\Francony_Morel\\Francony_Morel.csproj": {
+    "C:\\Users\\Alex\\Downloads\\morelb\\Morel-Francony-Bank\\Francony_Morel\\Francony_Morel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\alexa\\Downloads\\morelfrancony\\Morel-Francony-Bank\\Francony_Morel\\Francony_Morel.csproj",
+        "projectUniqueName": "C:\\Users\\Alex\\Downloads\\morelb\\Morel-Francony-Bank\\Francony_Morel\\Francony_Morel.csproj",
         "projectName": "Francony_Morel",
-        "projectPath": "C:\\Users\\alexa\\Downloads\\morelfrancony\\Morel-Francony-Bank\\Francony_Morel\\Francony_Morel.csproj",
-        "packagesPath": "C:\\Users\\alexa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\alexa\\Downloads\\morelfrancony\\Morel-Francony-Bank\\Francony_Morel\\obj\\",
+        "projectPath": "C:\\Users\\Alex\\Downloads\\morelb\\Morel-Francony-Bank\\Francony_Morel\\Francony_Morel.csproj",
+        "packagesPath": "C:\\Users\\Alex\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Alex\\Downloads\\morelb\\Morel-Francony-Bank\\Francony_Morel\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\alexa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Alex\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -59,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

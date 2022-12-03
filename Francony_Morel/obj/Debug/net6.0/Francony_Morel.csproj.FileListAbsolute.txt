@@ -1,0 +1,15 @@
+C:\Users\Alex\Downloads\morelb\Morel-Francony-Bank\Francony_Morel\obj\Debug\net6.0\Francony_Morel.csproj.AssemblyReference.cache
+C:\Users\Alex\Downloads\morelb\Morel-Francony-Bank\Francony_Morel\obj\Debug\net6.0\Francony_Morel.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Alex\Downloads\morelb\Morel-Francony-Bank\Francony_Morel\obj\Debug\net6.0\Francony_Morel.AssemblyInfoInputs.cache
+C:\Users\Alex\Downloads\morelb\Morel-Francony-Bank\Francony_Morel\obj\Debug\net6.0\Francony_Morel.AssemblyInfo.cs
+C:\Users\Alex\Downloads\morelb\Morel-Francony-Bank\Francony_Morel\obj\Debug\net6.0\Francony_Morel.csproj.CoreCompileInputs.cache
+C:\Users\Alex\Downloads\morelb\Morel-Francony-Bank\Francony_Morel\bin\Debug\net6.0\Francony_Morel.exe
+C:\Users\Alex\Downloads\morelb\Morel-Francony-Bank\Francony_Morel\bin\Debug\net6.0\Francony_Morel.deps.json
+C:\Users\Alex\Downloads\morelb\Morel-Francony-Bank\Francony_Morel\bin\Debug\net6.0\Francony_Morel.runtimeconfig.json
+C:\Users\Alex\Downloads\morelb\Morel-Francony-Bank\Francony_Morel\bin\Debug\net6.0\Francony_Morel.dll
+C:\Users\Alex\Downloads\morelb\Morel-Francony-Bank\Francony_Morel\bin\Debug\net6.0\Francony_Morel.pdb
+C:\Users\Alex\Downloads\morelb\Morel-Francony-Bank\Francony_Morel\obj\Debug\net6.0\Francony_Morel.dll
+C:\Users\Alex\Downloads\morelb\Morel-Francony-Bank\Francony_Morel\obj\Debug\net6.0\refint\Francony_Morel.dll
+C:\Users\Alex\Downloads\morelb\Morel-Francony-Bank\Francony_Morel\obj\Debug\net6.0\Francony_Morel.pdb
+C:\Users\Alex\Downloads\morelb\Morel-Francony-Bank\Francony_Morel\obj\Debug\net6.0\Francony_Morel.genruntimeconfig.cache
+C:\Users\Alex\Downloads\morelb\Morel-Francony-Bank\Francony_Morel\obj\Debug\net6.0\ref\Francony_Morel.dll

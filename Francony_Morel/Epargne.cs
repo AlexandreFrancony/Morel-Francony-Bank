@@ -3,7 +3,7 @@
     class Epargne : Account
     {
         int taux;
-        public Epargne(Owner owner, double sold, int id, int taux) : base(owner, sold, id)
+        public Epargne(Owner owner, double sold, int id, double debitMax, int taux) : base(owner, sold, id, debitMax)
         {
             this.taux = taux;
         }

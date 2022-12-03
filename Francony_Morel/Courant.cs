@@ -2,8 +2,8 @@
 {
     class Courant : Account
     {
-        private double decouvert;
-        public Courant(Owner owner, double sold, int id, double decouvert) : base(owner, sold, id)
+        public double decouvert;
+        public Courant(Owner owner, double sold, int id, double debitMax, double decouvert) : base(owner, sold, id, debitMax)
         {
             this.decouvert = decouvert;
         }
