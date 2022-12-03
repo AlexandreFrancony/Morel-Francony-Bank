@@ -2,7 +2,7 @@
 {
     class Courant : Account
     {
-        private double decouvert;
+        public double decouvert;
         public Courant(Owner owner, double sold, int id, double decouvert) : base(owner, sold, id)
         {
             this.decouvert = decouvert;

@@ -4,7 +4,7 @@
     {
         private int id;
         private int amount;
-        private DateTime date; //!Check avec le prof si l'utilisation de DateTime est Autorisé
+        private DateTime date;
         private string libellé;
 
         public Operation(int id, int amount, DateTime date, string libellé)
@@ -20,53 +20,48 @@
         public DateTime Date { get => date; set => date = value; }
         public string Libellé { get => libellé; set => libellé = value; }
 
-        //TODO: méthode retrait qui vérifie que le solde du compte this.sold est suffisant
-
-        private void Retrait(Account account, int amount)
+        //méthode Créditer
+        public void Créditer(Account account, double amount)
         {
-            if (account.Sold >= amount)
+            if (amount > 0)
             {
-                account.Sold -= amount;
-            }
-            else
-            {
-                Console.WriteLine("Solde insuffisant");
+                account.SoldAccount += amount;
+                account.Operations.Add(new Operation(amount, "Crédit"));
             }
         }
 
-        //TODO: méthode versement
-
-        private void Versement(Account account1, Account account2, int amount)
+        //méthode Retrait
+        public void Retrait(Account account, double amount)
         {
-            if(account1 is Courant)
+            if(amount > 0)
             {
-                account1 = (Courant)account1;
-                if ((account1.Sold - account1.decouvert)>= amount)
+                if (account is AccountCourant)
                 {
-                    account1.Sold -= amount;
-                    account2.Sold += amount;
+                    if (account.SoldAccount - amount >= ((AccountCourant)account).Decouvert)
+                    {
+                        account.SoldAccount -= amount;
+                        account.Operations.Add(new Operation(-amount, "Retrait"));
+                    }
                 }
-                else
+                else if (account is AccountEpargne)
                 {
-                    Console.WriteLine("Solde insuffisant");
+                    if (account.SoldAccount - amount > 0)
+                    {
+                        account.SoldAccount -= amount;
+                        account.Operations.Add(new Operation(-amount, "Retrait"));
+                    }
                 }
-            }
-            else
-            {
-                account1.Sold -= amount;
-                account2.Sold += amount;
-            }
-            if (account1.Sold >= amount)
-            {
-                account1.Sold -= amount;
-                account2.Sold += amount;
-            }
-            else
-            {
-                Console.WriteLine("Solde insuffisant");
             }
         }
-        //TODO: méthode virement
-        //TODO: méthode qui vérifie que l'opération est possible selon le type de compte et son solde
+
+        //méthode Virement
+        public void Virement(Account account1, Account account2, double amount)
+        {
+            if (account1.Banque == account2.Banque)
+            {
+                Retrait(account1, amount);
+                Créditer(account2, amount);
+            }
+        }
     }
 }
