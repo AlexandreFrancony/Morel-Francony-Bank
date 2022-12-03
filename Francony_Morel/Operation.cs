@@ -35,15 +35,15 @@
         {
             if(amount > 0)
             {
-                if (account is AccountCourant)
+                if (account is Courant)
                 {
-                    if (account.SoldAccount - amount >= ((AccountCourant)account).Decouvert)
+                    if (account.SoldAccount - amount >= ((Courant)account).Decouvert)
                     {
                         account.SoldAccount -= amount;
                         account.Operations.Add(new Operation(-amount, "Retrait"));
                     }
                 }
-                else if (account is AccountEpargne)
+                else if (account is Epargne)
                 {
                     if (account.SoldAccount - amount > 0)
                     {
