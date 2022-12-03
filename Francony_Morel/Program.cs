@@ -29,6 +29,7 @@
                         Console.WriteLine("Réussi !");
                         Utils.Wait();
                         break;
+
                     case 2:
                         Console.Clear();
                         Console.WriteLine("Affichage des owners de la banque");
