@@ -35,20 +35,23 @@
         {
             if (amount > 0)
             {
-                if (account is Courant)
+                if (amount >= account.DebitMax)
                 {
-                    if (account.Sold - amount >= ((Courant)account).Decouvert)
+                    if (account is Courant)
                     {
-                        account.Sold -= amount;
-                        //account.Operations.Add(new Operation(-amount, "Retrait"));
+                        if (account.Sold - amount >= -((Courant)account).Decouvert)
+                        {
+                            account.Sold -= amount;
+                            //account.Operations.Add(new Operation(-amount, "Retrait"));
+                        }
                     }
-                }
-                else if (account is Epargne)
-                {
-                    if (account.Sold - amount > 0)
+                    else if (account is Epargne)
                     {
-                        account.Sold -= amount;
-                        //account.Operations.Add(new Operation(-amount, "Retrait"));
+                        if (account.Sold - amount > 0)
+                        {
+                            account.Sold -= amount;
+                            //account.Operations.Add(new Operation(-amount, "Retrait"));
+                        }
                     }
                 }
             }
