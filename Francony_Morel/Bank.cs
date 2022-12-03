@@ -23,7 +23,9 @@
             Account[] accounts = new Account[0];
             Owner owner = new Owner(name, card_id, address, accounts);
             return owner;
-        }  
+        }
+
+        //Méthode pour ajouter un owner
         public void AddOwner(Owner owner)
         {
             Owner[] newOwners = new Owner[owners.Length + 1];
@@ -34,6 +36,18 @@
             newOwners[owners.Length] = owner;
             owners = newOwners;
         }
+
+        //méthode pour afficher tout les owners d'une banque
+        public static void DisplayOwners(Bank bank)
+        {
+            Console.WriteLine("ID\tNom\t\tCard ID\t\tAdresse");
+            for (int i = 0; i < bank.owners.Length; i++)
+            {
+                Console.WriteLine($"{i}\t{bank.owners[i].Name}\t{bank.owners[i].Card_id}\t{bank.owners[i].Address}");
+            }
+        }
+
+        //Méthode pour supprimer un owner
         public void RemoveOwner(Owner owner)
         {
             Owner[] newOwners = new Owner[owners.Length - 1];
@@ -49,14 +63,15 @@
             owners = newOwners;
         }
 
-        public Account? CreateAccount(Owner owner, int id)
+        //méthode CreateAccount
+        public static Account? CreateAccount(Owner owner, int id)
         {
             int choice = 0;
-            while(choice != 1 || choice != 2)
+            while (choice != 1 || choice != 2)
             {
                 Console.WriteLine("Voulez-vous créer un compte courant ou un compte épargne ?\n1. Compte courant\n2. Compte épargne\n");
                 choice = Utils.saisieInt();
-                if(choice == 1)
+                if (choice == 1)
                 {
                     Console.WriteLine("Quel est le solde du compte?");
                     double soldCourant = Utils.saisieDouble();
@@ -66,7 +81,7 @@
                     double decouvert = Utils.saisieDouble();
                     return new Courant(owner, soldCourant, id, debitMaxCourant, decouvert);
                 }
-                else if(choice == 2)
+                else if (choice == 2)
                 {
                     Console.WriteLine("Quel est le solde du compte?");
                     double soldEpargne = Utils.saisieDouble();
@@ -85,13 +100,43 @@
             return null;
         }
 
-        //méthode pour afficher tout les owners d'une banque
-        public static void DisplayOwners(Bank bank)
+        //méthode addAccount
+        public void AddAccount(Owner owner, Account account)
         {
-            for (int i = 0; i < bank.owners.Length; i++)
+            owner.AddAccount(account);
+        }
+
+        //méthode Display accounts
+        public static void DisplayAccounts(Owner owner)
+        {
+            Console.WriteLine("ID\tType\t\tSold\t\tDébit maximum");
+            for (int i = 0; i < owner.Accounts.Length; i++)
             {
-                Console.WriteLine($"{i}\t{bank.owners[i].Name}\t{bank.owners[i].Card_id}\t\t{bank.owners[i].Address}");
+                if (owner.Accounts[i] is Courant)
+                {
+                    Console.WriteLine($"{i}\tCourant\t\t{owner.Accounts[i].Sold}\t\t{owner.Accounts[i].DebitMax}");
+                }
+                else if (owner.Accounts[i] is Epargne)
+                {
+                    Console.WriteLine($"{i}\tEpargne\t\t{owner.Accounts[i].Sold}\t\t{owner.Accounts[i].DebitMax}");
+                }
             }
+        }
+
+        //méthode pour modifier débitMax
+        public void ModifierDebitMax(Account account)
+        {
+            Console.WriteLine("Quel est le nouveau débit maximum ?");
+            double debitMax = Utils.saisieDouble();
+            account.DebitMax = debitMax;
+        }
+
+        //méthode pour modifier découvert
+        public void ModifierDecouvert(Courant account)
+        {
+            Console.WriteLine("Quel est le nouveau découvert autorisé ?");
+            double decouvert = Utils.saisieDouble();
+            account.Decouvert = decouvert;
         }
     }
 }
