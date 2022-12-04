@@ -22,16 +22,15 @@
         public DateTime Date { get => date; set => date = value; }
         public string Libellé { get => libellé; set => libellé = value; }
 
-        //méthode Créditer
-        public void Créditer(Account account, double amount)
+        //méthode Créditer permettant d'ajouter de l'argent à un compte
+        public static void Créditer(Account account, double amountc)
         {
-            Console.WriteLine("Solde actuel: " + account.Sold);
-            Console.WriteLine("Sélectionner un montant à créditer: ");
-            double amountc = Utils.saisieDouble();
+
             if (amountc > 0)
             {
                 account.Sold += amountc;
-                account.operations.Add(new Operation(amount, "Crédit"));
+                account.operations.Add(new Operation(amountc, "Crédit"));
+
                 Console.WriteLine("Crédit effectué");
                 Console.WriteLine("Nouveau solde : " + account.Sold);
             }
@@ -41,15 +40,13 @@
             }
         }
 
-        //méthode Retrait
-        public void Retrait(Account account, double amount)
+        //méthode Retrait permettant de retirer de l'argent d'un compte
+        public static void Retrait(Account account, double amountr)
         {
-            Console.WriteLine("Solde actuel : " + account.Sold);
-            Console.WriteLine("Sélectionner un montant à débiter : ");
-            double amountr = Utils.saisieDouble();
             if (amountr > 0)
             {
-                if (amountr >= account.DebitMax)
+                if (amountr <= account.DebitMax)
+
                 {
                     if (account is Courant)
                     {
@@ -80,6 +77,14 @@
                         }
                     }
                 }
+                else
+                {
+                    Console.WriteLine("Le montant est supérieur au découvert autorisé");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Le montant doit être positif");
             }
             else
             {
@@ -87,23 +92,23 @@
             }
         }
 
-        //méthode Virement
-        public void Virement(Account account1, Account account2, double amount)
+        //méthode Virement permettant de transférer de l'argent d'un compte à un autre
+        public static void Virement(Account account1, Account account2, double amountv)
         {
             //if (account1.Banque == account2.Banque)
             //{
-            Retrait(account1, amount);
-            Créditer(account2, amount);
-            account1.operations.Add(new Operation(-amount, "Virement vers " + account2.Id));
-            account2.operations.Add(new Operation(amount, "Virement de " + account1.Id));
+            Retrait(account1, amountv);
+            Créditer(account2, amountv);
+            account1.operations.Add(new Operation(-amountv, "Virement vers " + account2.Id));
+            account2.operations.Add(new Operation(amountv, "Virement de " + account1.Id));
             Console.WriteLine("Virement effectué");
             Console.WriteLine("Nouveau solde du compte ayant effectué un retrait : " + account1.Sold);
             Console.WriteLine("Nouveau solde du compte ayant été crédité : " + account2.Sold);
             //}
         }
 
-        //méthode Afficher historique des opérations
-        public void AfficherHistorique(Account account)
+        //méthode Afficher historique des opérations d'un compte
+        public static void AfficherHistorique(Account account)
         {
             Console.WriteLine("Historique des opérations du compte " + account.Id);
             foreach (Operation operation in account.operations)

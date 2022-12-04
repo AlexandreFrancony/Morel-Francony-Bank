@@ -35,5 +35,21 @@
         {
             return "Owner [name=" + name + ", card_id=" + card_id + ", address=" + address + "]";
         }
+
+        //méthode RemoveAccount
+        public void RemoveAccount(Account account)
+        {
+            Account[] newAccounts = new Account[accounts.Length - 1];
+            int j = 0;
+            for (int i = 0; i < accounts.Length; i++)
+            {
+                if (accounts[i] != account)
+                {
+                    newAccounts[j] = accounts[i];
+                    j++;
+                }
+            }
+            accounts = newAccounts;
+        }
     }
 }
