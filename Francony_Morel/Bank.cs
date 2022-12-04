@@ -115,11 +115,11 @@
             {
                 if (owner.Accounts[i] is Courant)
                 {
-                    Console.WriteLine($"{i}\tCourant\t\t{owner.Accounts[i].Sold}{e}\t\t{owner.Accounts[i].DebitMax}{e}");
+                    Console.WriteLine($"{i}\tCourant\t\t{owner.Accounts[i].Sold}"+"€"+$"\t\t{owner.Accounts[i].DebitMax}"+"€");
                 }
                 else if (owner.Accounts[i] is Epargne)
                 {
-                    Console.WriteLine($"{i}\tEpargne\t\t{owner.Accounts[i].Sold}{e}\t\t{owner.Accounts[i].DebitMax}{e}");
+                    Console.WriteLine($"{i}\tEpargne\t\t{owner.Accounts[i].Sold}"+"€"+$"\t\t{owner.Accounts[i].DebitMax}"+"€");
                 }
             }
         }
@@ -151,23 +151,23 @@
         public void Modifier(Account toModify)
         {
             if(toModify is Courant)
-                {
-                    Console.WriteLine("Le compte est un compte courant");
-                    Console.WriteLine("Quel est le nouveau découvert autorisé ?");
-                    double newDecouvert = Utils.saisieDouble();
-                    ((Courant)toModify).decouvert = newDecouvert;
-                }
-                else if(toModify is Epargne)
-                {
-                    Console.WriteLine("Le compte est un compte épargne");
-                    Console.WriteLine("Quel est le nouveau taux d'intérêt ?");
-                    int newTaux = Utils.saisieInt();
-                    ((Epargne)toModify).taux = newTaux;
-                }
-                else
-                {
-                    Console.WriteLine("Le type de compte (Epargne/Courant) n'a pas été trouvé, veuillez contacter le développeur");
-                }
+            {
+                Console.WriteLine("Le compte est un compte courant");
+                Console.WriteLine("Quel est le nouveau découvert autorisé ?");
+                double newDecouvert = Utils.saisieDouble();
+                ((Courant)toModify).decouvert = newDecouvert;
+            }
+            else if(toModify is Epargne)
+            {
+                Console.WriteLine("Le compte est un compte épargne");
+                Console.WriteLine("Quel est le nouveau taux d'intérêt ?");
+                int newTaux = Utils.saisieInt();
+                ((Epargne)toModify).taux = newTaux;
+            }
+            else
+            {
+                Console.WriteLine("Le type de compte (Epargne/Courant) n'a pas été trouvé, veuillez contacter le développeur");
+            }
         }
     }
 }
