@@ -26,6 +26,8 @@
         public void Créditer(Account account, double amount)
         {
             Console.WriteLine("Solde actuel: " + account.Sold);
+            Console.Writeline("Sélectionner un montant à créditer: ");
+            double amount = Utils.saisieDouble();
             if (amount > 0)
             {
                 account.Sold += amount;
@@ -33,12 +35,18 @@
                 Console.WriteLine("Crédit effectué");
                 Console.WriteLine("Nouveau solde : " + account.Sold);
             }
+            else
+            {
+                Console.WriteLine("Le montant doit être positif");
+            }
         }
 
         //méthode Retrait
         public void Retrait(Account account, double amount)
         {
             Console.WriteLine("Solde actuel : " + account.Sold);
+            Console.WriteLine("Sélectionner un montant à débiter : ");
+            double amount = Utils.saisieDouble();
             if (amount > 0)
             {
                 if (amount >= account.DebitMax)
@@ -72,6 +80,10 @@
                         }
                     }
                 }
+            }
+            else
+            {
+                Console.WriteLine("Le montant doit être positif");
             }
         }
 
