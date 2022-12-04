@@ -4,21 +4,21 @@
     {
         private static int CompteurID = 0;
         private int id;
-        private int amount;
+        private double amount;
         private DateTime date;
         private string libellé;
 
-        public Operation(int amount, string libellé)
+        public Operation(double amount, string libellé)
         {
             CompteurID++;
-            id = id;
+            id = CompteurID;
             this.amount = amount;
             date = DateTime.Now;
             this.libellé = libellé;
         }
 
         public int Id { get => id; set => id = value; }
-        public int Amount { get => amount; set => amount = value; }
+        public double Amount { get => amount; set => amount = value; }
         public DateTime Date { get => date; set => date = value; }
         public string Libellé { get => libellé; set => libellé = value; }
 
@@ -26,11 +26,11 @@
         public void Créditer(Account account, double amount)
         {
             Console.WriteLine("Solde actuel: " + account.Sold);
-            Console.Writeline("Sélectionner un montant à créditer: ");
-            double amount = Utils.saisieDouble();
-            if (amount > 0)
+            Console.WriteLine("Sélectionner un montant à créditer: ");
+            double amountc = Utils.saisieDouble();
+            if (amountc > 0)
             {
-                account.Sold += amount;
+                account.Sold += amountc;
                 account.operations.Add(new Operation(amount, "Crédit"));
                 Console.WriteLine("Crédit effectué");
                 Console.WriteLine("Nouveau solde : " + account.Sold);
@@ -46,17 +46,17 @@
         {
             Console.WriteLine("Solde actuel : " + account.Sold);
             Console.WriteLine("Sélectionner un montant à débiter : ");
-            double amount = Utils.saisieDouble();
-            if (amount > 0)
+            double amountr = Utils.saisieDouble();
+            if (amountr > 0)
             {
-                if (amount >= account.DebitMax)
+                if (amountr >= account.DebitMax)
                 {
                     if (account is Courant)
                     {
-                        if (account.Sold - amount >= -((Courant)account).Decouvert)
+                        if (account.Sold - amountr >= -((Courant)account).Decouvert)
                         {
-                            account.Sold -= amount;
-                            account.operations.Add(new Operation(-amount, "Retrait"));
+                            account.Sold -= amountr;
+                            account.operations.Add(new Operation(-amountr, "Retrait"));
                             Console.WriteLine("Retrait effectué");
                             Console.WriteLine("Nouveau solde : " + account.Sold);
                         }
@@ -67,10 +67,10 @@
                     }
                     else if (account is Epargne)
                     {
-                        if (account.Sold - amount > 0)
+                        if (account.Sold - amountr > 0)
                         {
-                            account.Sold -= amount;
-                            account.operations.Add(new Operation(-amount, "Retrait"));
+                            account.Sold -= amountr;
+                            account.operations.Add(new Operation(-amountr, "Retrait"));
                             Console.WriteLine("Retrait effectué");
                             Console.WriteLine("Nouveau solde : " + account.Sold);
                         }
