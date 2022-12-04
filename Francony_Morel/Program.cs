@@ -84,6 +84,7 @@
                             Console.WriteLine("1. Créer un compte");
                             Console.WriteLine("2. Supprimer un compte");
                             Console.WriteLine("3. Afficher tout les comptes d'un owner");
+                            Console.WriteLine("4. Modifier un compte");
                             Console.WriteLine("\n9. Retour\n");
                             choixAccount = Utils.saisieInt();
                             switch(choixAccount)
@@ -116,6 +117,22 @@
                                     Console.Write("ID : ");
                                     int id2 = Utils.saisieInt();
                                     Bank.DisplayAccounts(bank.Owners[id2]);
+                                    Utils.Wait();
+                                    break;
+
+                                case 4:
+                                    Console.Clear();
+                                    Console.WriteLine("Modification d'un compte\nWIP");
+                                    Console.WriteLine("De quel owner voulez-vous modifier le compte ?");
+                                    Bank.DisplayOwners(bank);
+                                    Console.Write("ID : ");
+                                    int id3 = Utils.saisieInt();
+                                    Bank.DisplayAccounts(bank.Owners[id3]);
+                                    Console.WriteLine("Quel est l'ID du compte à modifier ?");
+                                    Console.Write("ID : ");
+                                    int id4 = Utils.saisieInt();
+                                    Account toModify = bank.Owners[id3].Accounts[id4];
+                                    bank.Modifier(toModify);
                                     Utils.Wait();
                                     break;
 

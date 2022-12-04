@@ -110,15 +110,16 @@
         public static void DisplayAccounts(Owner owner)
         {
             Console.WriteLine("ID\tType\t\tSold\t\tDébit maximum");
+            string e = "€";
             for (int i = 0; i < owner.Accounts.Length; i++)
             {
                 if (owner.Accounts[i] is Courant)
                 {
-                    Console.WriteLine($"{i}\tCourant\t\t{owner.Accounts[i].Sold}\t\t{owner.Accounts[i].DebitMax}");
+                    Console.WriteLine($"{i}\tCourant\t\t{owner.Accounts[i].Sold}{e}\t\t{owner.Accounts[i].DebitMax}{e}");
                 }
                 else if (owner.Accounts[i] is Epargne)
                 {
-                    Console.WriteLine($"{i}\tEpargne\t\t{owner.Accounts[i].Sold}\t\t{owner.Accounts[i].DebitMax}");
+                    Console.WriteLine($"{i}\tEpargne\t\t{owner.Accounts[i].Sold}{e}\t\t{owner.Accounts[i].DebitMax}{e}");
                 }
             }
         }
@@ -128,7 +129,7 @@
         {
             Console.WriteLine("Quel est le nouveau débit maximum ?");
             double debitMax = Utils.saisieDouble();
-            account.DebitMax = debitMax;
+            ((Courant)account).DebitMax = debitMax;
         }
 
         //méthode pour modifier découvert
@@ -136,7 +137,37 @@
         {
             Console.WriteLine("Quel est le nouveau découvert autorisé ?");
             double decouvert = Utils.saisieDouble();
-            account.Decouvert = decouvert;
+            ((Courant)account).decouvert = decouvert;
+        }
+
+        //méthode pour modifier taux
+        public void ModifierTaux(Epargne account)
+        {
+            Console.WriteLine("Quel est le nouveau taux d'intérêt ?");
+            int taux = Utils.saisieInt();
+            ((Epargne)account).taux = taux;
+        }
+
+        public void Modifier(Account toModify)
+        {
+            if(toModify is Courant)
+                {
+                    Console.WriteLine("Le compte est un compte courant");
+                    Console.WriteLine("Quel est le nouveau découvert autorisé ?");
+                    double newDecouvert = Utils.saisieDouble();
+                    ((Courant)toModify).decouvert = newDecouvert;
+                }
+                else if(toModify is Epargne)
+                {
+                    Console.WriteLine("Le compte est un compte épargne");
+                    Console.WriteLine("Quel est le nouveau taux d'intérêt ?");
+                    int newTaux = Utils.saisieInt();
+                    ((Epargne)toModify).taux = newTaux;
+                }
+                else
+                {
+                    Console.WriteLine("Le type de compte (Epargne/Courant) n'a pas été trouvé, veuillez contacter le développeur");
+                }
         }
     }
 }
