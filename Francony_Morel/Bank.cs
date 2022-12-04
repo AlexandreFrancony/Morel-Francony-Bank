@@ -124,6 +124,12 @@
             }
         }
 
+        //méthode removeAccount
+        public void RemoveAccount(Owner owner, Account account)
+        {
+            owner.RemoveAccount(account);
+        }
+
         //méthode pour modifier débitMax
         public void ModifierDebitMax(Account account)
         {
