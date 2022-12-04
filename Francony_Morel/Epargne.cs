@@ -7,5 +7,8 @@
         {
             this.taux = taux;
         }
+
+        //getter et setter
+        public int Taux { get => taux; set => taux = value; }
     }
 }
