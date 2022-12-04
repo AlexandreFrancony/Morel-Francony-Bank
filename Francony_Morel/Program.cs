@@ -105,7 +105,15 @@
                                 case 2:
                                     Console.Clear();
                                     Console.WriteLine("Suppression d'un compte\nWIP");
-                                    //TODO méthode supprimer un compte
+                                    Console.WriteLine("Quel est l'id du propriétaire du compte à supprimer?");
+                                    Bank.DisplayOwners(bank);
+                                    Console.Write("ID : ");
+                                    int id5 = Utils.saisieInt();
+                                    Console.WriteLine("Quel est l'id du compte à supprimer?");
+                                    Bank.DisplayAccounts(bank.Owners[id5]);
+                                    Console.Write("ID : ");
+                                    int id6 = Utils.saisieInt();
+                                    bank.Owners[id5].RemoveAccount(bank.Owners[id5].Accounts[id6]);
                                     Utils.Wait();
                                     break;
 
@@ -122,7 +130,7 @@
 
                                 case 4:
                                     Console.Clear();
-                                    Console.WriteLine("Modification d'un compte\nWIP");
+                                    Console.WriteLine("Modification d'un compte\n");
                                     Console.WriteLine("De quel owner voulez-vous modifier le compte ?");
                                     Bank.DisplayOwners(bank);
                                     Console.Write("ID : ");

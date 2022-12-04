@@ -11,7 +11,7 @@
 
         public Owner[] Owners { get => owners; set => owners = value; }
 
-        //Méthode pour créer un owener
+        //Méthode pour créer un owner //*Verifié!
         public static Owner CreateOwner()
         {
             Console.Write("\nNom du propriétaire : ");
@@ -25,7 +25,7 @@
             return owner;
         }
 
-        //Méthode pour ajouter un owner
+        //Méthode pour ajouter un owner //*Verifié!
         public void AddOwner(Owner owner)
         {
             Owner[] newOwners = new Owner[owners.Length + 1];
@@ -37,7 +37,7 @@
             owners = newOwners;
         }
 
-        //méthode pour afficher tout les owners d'une banque
+        //méthode pour afficher tout les owners d'une banque //*Verifié!
         public static void DisplayOwners(Bank bank)
         {
             Console.WriteLine("ID\tNom\t\tCard ID\t\tAdresse");
@@ -47,7 +47,7 @@
             }
         }
 
-        //Méthode pour supprimer un owner
+        //Méthode pour supprimer un owner //*Verifié!
         public void RemoveOwner(Owner owner)
         {
             Owner[] newOwners = new Owner[owners.Length - 1];
@@ -63,7 +63,7 @@
             owners = newOwners;
         }
 
-        //méthode CreateAccount
+        //méthode qui permet de créer un compte avec tout ses attributes défit dans la classe Account //*Verifié!
         public static Account CreateAccount(Owner owner, int id)
         {
             int choice = 0;
@@ -100,20 +100,21 @@
             return new Courant(owner, 0, id, 0, 0);
         }
 
-        //méthode addAccount
+        //méthode permettant d'ajouter un compte au tableau de compte de son propriétaire //*Verifié!
         public void AddAccount(Owner owner, Account account)
         {
             owner.AddAccount(account);
         }
 
-        //méthode Display accounts
+        //méthode Display accounts //*Verifié!
+                                   //!"€" à revoir! => CF table ascii
         public static void DisplayAccounts(Owner owner)
         {
             for (int i = 0; i < owner.Accounts.Length; i++)
             {
                 if (owner.Accounts[i] is Courant)
                 {
-                    Console.WriteLine("ID\tType\t\tSold\t\tDébit maximum\t\tDécouvert autorisé");
+                    Console.WriteLine("ID\tType\t\tSold\t\tDébit maximum\tDécouvert autorisé");
                     Console.WriteLine($"{i}\tCourant\t\t{owner.Accounts[i].Sold}"+"€"+$"\t\t{owner.Accounts[i].DebitMax}"+"€" + $"\t\t{((Courant)owner.Accounts[i]).Decouvert}"+"€"+"\n");
                 }
                 else if (owner.Accounts[i] is Epargne)
@@ -124,13 +125,13 @@
             }
         }
 
-        //méthode removeAccount
-        /*public void RemoveAccount(Owner owner, Account account)
+        //méthode qui permet de supprimer un compte //*Verifié!
+        public void RemoveAccount(Owner owner, Account account)
         {
             owner.RemoveAccount(account);
-        }*/
+        }
 
-        //méthode pour modifier débitMax
+        //méthode pour modifier débitMax //*Verifié!
         public void ModifierDebitMax(Account account)
         {
             Console.WriteLine("Quel est le nouveau débit maximum ?");
@@ -138,7 +139,7 @@
             ((Courant)account).DebitMax = debitMax;
         }
 
-        //méthode pour modifier découvert
+        //méthode pour modifier découvert //*Verifié!
         public void ModifierDecouvert(Courant account)
         {
             Console.WriteLine("Quel est le nouveau découvert autorisé ?");
@@ -146,7 +147,7 @@
             ((Courant)account).decouvert = decouvert;
         }
 
-        //méthode pour modifier taux
+        //méthode pour modifier taux //*Verifié!
         public void ModifierTaux(Epargne account)
         {
             Console.WriteLine("Quel est le nouveau taux d'intérêt ?");
@@ -154,21 +155,44 @@
             ((Epargne)account).taux = taux;
         }
 
+        //Méthode pour modifier les attributs d'un compte (Epargne/Courant) en fonction de son type //*Verifié!
         public void Modifier(Account toModify)
         {
             if(toModify is Courant)
             {
                 Console.WriteLine("Le compte est un compte courant");
-                Console.WriteLine("Quel est le nouveau découvert autorisé ?");
-                double newDecouvert = Utils.saisieDouble();
-                ((Courant)toModify).decouvert = newDecouvert;
+                Console.WriteLine("Quel attribut voulez-vous modifier ?\n1. Débit maximum\n2. Découvert autorisé");
+                int choice = Utils.saisieInt();
+                if (choice == 1)
+                {
+                    ModifierDebitMax(toModify);
+                }
+                else if (choice == 2)
+                {
+                    ModifierDecouvert((Courant)toModify);
+                }
+                else
+                {
+                    Console.WriteLine("Choix invalide, veuillez réessayer.");
+                }
             }
             else if(toModify is Epargne)
             {
                 Console.WriteLine("Le compte est un compte épargne");
-                Console.WriteLine("Quel est le nouveau taux d'intérêt ?");
-                int newTaux = Utils.saisieInt();
-                ((Epargne)toModify).taux = newTaux;
+                Console.WriteLine("Quel attribut voulez-vous modifier ?\n1. Débit maximum\n2. Taux d'intérêt");
+                int choice = Utils.saisieInt();
+                if (choice == 1)
+                {
+                    ModifierDebitMax(toModify);
+                }
+                else if (choice == 2)
+                {
+                    ModifierTaux((Epargne)toModify);
+                }
+                else
+                {
+                    Console.WriteLine("Choix invalide, veuillez réessayer.");
+                }
             }
             else
             {
