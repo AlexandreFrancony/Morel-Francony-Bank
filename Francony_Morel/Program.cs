@@ -16,11 +16,6 @@
                 Console.WriteLine("1. Gestion des propriétaires");
                 Console.WriteLine("2. Gestion des comptes");
                 Console.WriteLine("3. Effectuer une opération");
-                Console.WriteLine("4. ");
-                Console.WriteLine("5. ");
-                Console.WriteLine("6. ");
-                Console.WriteLine("7. ");
-                Console.WriteLine("8.");
                 Console.WriteLine("\n9. Quitter\n");
                 Console.Write("Votre choix : ");
                 choix = Utils.saisieInt();
@@ -244,9 +239,7 @@
                             }
                         }while(choixOperation != 9);
                     #endregion    
-                        break;
-                    case 4:
-                        
+                        break;                
 
                     case 9://Quitter
                         Console.Clear();
