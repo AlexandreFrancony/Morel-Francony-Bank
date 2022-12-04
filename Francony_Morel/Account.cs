@@ -14,15 +14,6 @@
             this.operations = new List<Operation>();
         }
 
-        //constructeur par défaut
-        public Account()
-        {
-            this.sold = 0;
-            id++;
-            this.debitMax = 0;
-            this.operations = new Operation[0];
-        }
-
         //getter et setter
         public int Id { get => id; set => id = value; }
         public double Sold { get => sold; set => sold = value; }
