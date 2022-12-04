@@ -4,21 +4,21 @@
     {
         private static int CompteurID = 0;
         private int id;
-        private int amount;
+        private double amount;
         private DateTime date;
         private string libellé;
 
-        public Operation(int amount, string libellé)
+        public Operation(double amount, string libellé)
         {
             CompteurID++;
-            id = id;
+            id = CompteurID;
             this.amount = amount;
             date = DateTime.Now;
             this.libellé = libellé;
         }
 
         public int Id { get => id; set => id = value; }
-        public int Amount { get => amount; set => amount = value; }
+        public double Amount { get => amount; set => amount = value; }
         public DateTime Date { get => date; set => date = value; }
         public string Libellé { get => libellé; set => libellé = value; }
 

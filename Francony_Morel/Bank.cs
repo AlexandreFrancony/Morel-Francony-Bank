@@ -109,26 +109,26 @@
         //méthode Display accounts
         public static void DisplayAccounts(Owner owner)
         {
-            Console.WriteLine("ID\tType\t\tSold\t\tDébit maximum");
-            string e = "€";
             for (int i = 0; i < owner.Accounts.Length; i++)
             {
                 if (owner.Accounts[i] is Courant)
                 {
-                    Console.WriteLine($"{i}\tCourant\t\t{owner.Accounts[i].Sold}"+"€"+$"\t\t{owner.Accounts[i].DebitMax}"+"€");
+                    Console.WriteLine("ID\tType\t\tSold\t\tDébit maximum\t\tDécouvert autorisé");
+                    Console.WriteLine($"{i}\tCourant\t\t{owner.Accounts[i].Sold}"+"€"+$"\t\t{owner.Accounts[i].DebitMax}"+"€" + $"\t\t{((Courant)owner.Accounts[i]).Decouvert}"+"€"+"\n");
                 }
                 else if (owner.Accounts[i] is Epargne)
                 {
-                    Console.WriteLine($"{i}\tEpargne\t\t{owner.Accounts[i].Sold}"+"€"+$"\t\t{owner.Accounts[i].DebitMax}"+"€");
+                    Console.WriteLine("ID\tType\t\tSold\t\tDébit maximum\t\tTaux d'intérêt");
+                    Console.WriteLine($"{i}\tEpargne\t\t{owner.Accounts[i].Sold}"+"€"+$"\t\t{owner.Accounts[i].DebitMax}"+"€" + $"\t\t{((Epargne)owner.Accounts[i]).taux}"+"%"+"\n");
                 }
             }
         }
 
         //méthode removeAccount
-        public void RemoveAccount(Owner owner, Account account)
+        /*public void RemoveAccount(Owner owner, Account account)
         {
             owner.RemoveAccount(account);
-        }
+        }*/
 
         //méthode pour modifier débitMax
         public void ModifierDebitMax(Account account)
