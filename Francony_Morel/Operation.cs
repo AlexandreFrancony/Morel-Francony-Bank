@@ -22,7 +22,7 @@
         public DateTime Date { get => date; set => date = value; }
         public string Libellé { get => libellé; set => libellé = value; }
 
-        //méthode Créditer permettant d'ajouter de l'argent à un compte
+        //méthode Créditer permettant d'ajouter de l'argent à un compte //*Verifié!
         public static void Créditer(Account account, double amountc)
         {
 
@@ -40,7 +40,7 @@
             }
         }
 
-        //méthode Retrait permettant de retirer de l'argent d'un compte
+        //méthode Retrait permettant de retirer de l'argent d'un compte //*Verifié!
         public static void Retrait(Account account, double amountr)
         {
             if (amountr > 0)
@@ -88,7 +88,7 @@
             }
         }
 
-        //méthode Virement permettant de transférer de l'argent d'un compte à un autre
+        //méthode Virement permettant de transférer de l'argent d'un compte à un autre //*Verifié!
         public static void Virement(Account account1, Account account2, double amountv)
         {
             //if (account1.Banque == account2.Banque)
@@ -103,7 +103,7 @@
             //}
         }
 
-        //méthode Afficher historique des opérations d'un compte
+        //méthode Afficher historique des opérations d'un compte //*Verifié!
         public static void AfficherHistorique(Account account)
         {
             Console.WriteLine("Historique des opérations du compte " + account.Id);
