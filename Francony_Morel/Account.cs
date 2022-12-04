@@ -5,11 +5,13 @@
         protected int id;
         protected double sold;
         protected double debitMax;
+        protected List<Operation> operations;
         public Account(Owner owner, double sold, int id, double debitMax)
         {
             this.id = id;
             this.sold = sold;
             this.debitMax = debitMax;
+            this.operations = new List<Operation>();
         }
 
         //constructeur par défaut

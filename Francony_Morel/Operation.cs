@@ -2,16 +2,18 @@
 {
     internal class Operation
     {
+        private static int CompteurID = 0;
         private int id;
         private int amount;
         private DateTime date;
         private string libellé;
 
-        public Operation(int id, int amount, DateTime date, string libellé)
+        public Operation(int amount, string libellé)
         {
-            this.id = id;
+            CompteurID++;
+            id = id;
             this.amount = amount;
-            this.date = date;
+            date = DateTime.Now;
             this.libellé = libellé;
         }
 
@@ -23,16 +25,20 @@
         //méthode Créditer
         public void Créditer(Account account, double amount)
         {
+            Console.WriteLine("Solde actuel: " + account.Sold);
             if (amount > 0)
             {
                 account.Sold += amount;
-                //account.Operations.Add(new Operation(amount, "Crédit"));
+                account.operations.Add(new Operation(amount, "Crédit"));
+                Console.WriteLine("Crédit effectué");
+                Console.WriteLine("Nouveau solde : " + account.Sold);
             }
         }
 
         //méthode Retrait
         public void Retrait(Account account, double amount)
         {
+            Console.WriteLine("Solde actuel : " + account.Sold);
             if (amount > 0)
             {
                 if (amount >= account.DebitMax)
@@ -42,7 +48,13 @@
                         if (account.Sold - amount >= -((Courant)account).Decouvert)
                         {
                             account.Sold -= amount;
-                            //account.Operations.Add(new Operation(-amount, "Retrait"));
+                            account.operations.Add(new Operation(-amount, "Retrait"));
+                            Console.WriteLine("Retrait effectué");
+                            Console.WriteLine("Nouveau solde : " + account.Sold);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Solde insuffisant");
                         }
                     }
                     else if (account is Epargne)
@@ -50,7 +62,13 @@
                         if (account.Sold - amount > 0)
                         {
                             account.Sold -= amount;
-                            //account.Operations.Add(new Operation(-amount, "Retrait"));
+                            account.operations.Add(new Operation(-amount, "Retrait"));
+                            Console.WriteLine("Retrait effectué");
+                            Console.WriteLine("Nouveau solde : " + account.Sold);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Solde insuffisant");
                         }
                     }
                 }
@@ -64,7 +82,22 @@
             //{
             Retrait(account1, amount);
             Créditer(account2, amount);
+            account1.operations.Add(new Operation(-amount, "Virement vers " + account2.Id));
+            account2.operations.Add(new Operation(amount, "Virement de " + account1.Id));
+            Console.WriteLine("Virement effectué");
+            Console.WriteLine("Nouveau solde du compte ayant effectué un retrait : " + account1.Sold);
+            Console.WriteLine("Nouveau solde du compte ayant été crédité : " + account2.Sold);
             //}
+        }
+
+        //méthode Afficher historique des opérations
+        public void AfficherHistorique(Account account)
+        {
+            Console.WriteLine("Historique des opérations du compte " + account.Id);
+            foreach (Operation operation in account.operations)
+            {
+                Console.WriteLine("Opération " + operation.Id + " : " + operation.Libellé + " de " + operation.Amount + "€ le " + operation.Date);
+            }
         }
     }
 }
