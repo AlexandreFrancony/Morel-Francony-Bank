@@ -86,10 +86,6 @@
             {
                 Console.WriteLine("Le montant doit être positif");
             }
-            else
-            {
-                Console.WriteLine("Le montant doit être positif");
-            }
         }
 
         //méthode Virement permettant de transférer de l'argent d'un compte à un autre
