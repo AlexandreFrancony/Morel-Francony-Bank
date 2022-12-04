@@ -119,7 +119,7 @@
                 }
                 else if (owner.Accounts[i] is Epargne)
                 {
-                    Console.WriteLine("ID\tType\t\tSold\t\tDébit maximum\t\tTaux d'intérêt");
+                    Console.WriteLine("ID\tType\t\tSold\t\tDébit maximum\tTaux d'intérêt");
                     Console.WriteLine($"{i}\tEpargne\t\t{owner.Accounts[i].Sold}"+"€"+$"\t\t{owner.Accounts[i].DebitMax}"+"€" + $"\t\t{((Epargne)owner.Accounts[i]).taux}"+"%"+"\n");
                 }
             }
