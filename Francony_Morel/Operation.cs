@@ -25,10 +25,12 @@
         //méthode Créditer permettant d'ajouter de l'argent à un compte
         public static void Créditer(Account account, double amountc)
         {
+
             if (amountc > 0)
             {
                 account.Sold += amountc;
                 account.operations.Add(new Operation(amountc, "Crédit"));
+
                 Console.WriteLine("Crédit effectué");
                 Console.WriteLine("Nouveau solde : " + account.Sold);
             }
@@ -44,6 +46,7 @@
             if (amountr > 0)
             {
                 if (amountr <= account.DebitMax)
+
                 {
                     if (account is Courant)
                     {
@@ -78,6 +81,10 @@
                 {
                     Console.WriteLine("Le montant est supérieur au découvert autorisé");
                 }
+            }
+            else
+            {
+                Console.WriteLine("Le montant doit être positif");
             }
             else
             {
