@@ -18,6 +18,6 @@
         public int Id { get => id; set => id = value; }
         public double Sold { get => sold; set => sold = value; }
         public double DebitMax { get => debitMax; set => debitMax = value; }
-        public Operation[] Operations { get => operations; set => operations = value; }
+        public List<Operation> Operations { get => operations; set => operations = value; }
     }
 }
