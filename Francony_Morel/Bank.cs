@@ -64,7 +64,7 @@
         }
 
         //méthode CreateAccount
-        public static Account? CreateAccount(Owner owner, int id)
+        public static Account CreateAccount(Owner owner, int id)
         {
             int choice = 0;
             while (choice != 1 || choice != 2)
@@ -97,7 +97,7 @@
                     Console.WriteLine("Choix invalide, veuillez réessayer.");
                 }
             }
-            return null;
+            return new Courant(owner, 0, id, 0, 0);
         }
 
         //méthode addAccount
