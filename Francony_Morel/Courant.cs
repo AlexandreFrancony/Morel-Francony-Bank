@@ -5,7 +5,7 @@
         public double decouvert;
 
         //constructeur par défaut
-        public Courant(Owner owner, double sold, int id, double debitMax, double decouvert) : base(owner, sold, id, debitMax, new Operation[0])
+        public Courant(Owner owner, double sold, int id, double debitMax, double decouvert) : base(owner, sold, id, debitMax)
         {
             this.decouvert = decouvert;
         }
