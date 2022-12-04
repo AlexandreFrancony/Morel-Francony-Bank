@@ -31,11 +31,6 @@
             accounts = newAccounts;
         }
 
-        public override string ToString()
-        {
-            return "Owner [name=" + name + ", card_id=" + card_id + ", address=" + address + "]";
-        }
-
         //méthode RemoveAccount
         public void RemoveAccount(Account account)
         {
