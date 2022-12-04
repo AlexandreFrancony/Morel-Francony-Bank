@@ -107,7 +107,7 @@
         }
 
         //méthode Display accounts //*Verifié!
-                                   //!"€" à revoir! => CF table ascii
+                                   //!"euros" à revoir! => CF table ascii
         public static void DisplayAccounts(Owner owner)
         {
             for (int i = 0; i < owner.Accounts.Length; i++)
@@ -115,12 +115,12 @@
                 if (owner.Accounts[i] is Courant)
                 {
                     Console.WriteLine("ID\tType\t\tSold\t\tDébit maximum\tDécouvert autorisé");
-                    Console.WriteLine($"{i}\tCourant\t\t{owner.Accounts[i].Sold}"+"€"+$"\t\t{owner.Accounts[i].DebitMax}"+"€" + $"\t\t{((Courant)owner.Accounts[i]).Decouvert}"+"€"+"\n");
+                    Console.WriteLine($"{i}\tCourant\t\t{owner.Accounts[i].Sold}"+"euros"+$"\t\t{owner.Accounts[i].DebitMax}"+"euros" + $"\t\t{((Courant)owner.Accounts[i]).Decouvert}"+"euros"+"\n");
                 }
                 else if (owner.Accounts[i] is Epargne)
                 {
                     Console.WriteLine("ID\tType\t\tSold\t\tDébit maximum\tTaux d'intérêt");
-                    Console.WriteLine($"{i}\tEpargne\t\t{owner.Accounts[i].Sold}"+"€"+$"\t\t{owner.Accounts[i].DebitMax}"+"€" + $"\t\t{((Epargne)owner.Accounts[i]).taux}"+"%"+"\n");
+                    Console.WriteLine($"{i}\tEpargne\t\t{owner.Accounts[i].Sold}"+"euros"+$"\t\t{owner.Accounts[i].DebitMax}"+"euros" + $"\t\t{((Epargne)owner.Accounts[i]).taux}"+"%"+"\n");
                 }
             }
         }
